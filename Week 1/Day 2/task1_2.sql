@@ -86,3 +86,34 @@ UPDATE Employees
 SET DepartmentID = 7
 WHERE EmployeeID=1;
 -- RESPONSE Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`day_two`.`employees`, CONSTRAINT `fk_department` FOREIGN KEY (`DepartmentID`) REFERENCES `departments` (`DepartmentID`))
+
+
+-- Select the first name, last name, and salary of the top 3 employees with the highest salaries.
+USE day_two;
+SELECT FirstName, LastName, Salary FROM Employees
+ORDER BY Salary DESC LIMIT 3;
+
+-- Select the first name, last name, and salary of the top 3 employees with the lowest salaries.
+SELECT FirstName, LastName, Salary FROM Employees
+ORDER BY Salary LIMIT 3;
+
+-- Select the first name, last name, and salary of the employee with the 2nd highest salary.
+SELECT FirstName, LastName, Salary FROM Employees
+ORDER BY Salary DESC LIMIT 1, 1;
+
+-- Select the first name, last name, and salary of the employee with the 2nd lowest salary.
+SELECT FirstName, LastName, Salary FROM Employees
+ORDER BY Salary LIMIT 1, 1;
+
+-- Select the first name, last name, and salary of the employee with the 3rd highest salary.
+SELECT FirstName, LastName, Salary FROM Employees
+ORDER BY Salary DESC LIMIT 3, 1;
+
+-- Select the first name, last name, and salary of the employee with the 3rd lowest salary.
+SELECT FirstName, LastName, Salary FROM Employees
+ORDER BY Salary LIMIT 3, 1;
+
+-- Select the first name, last name, email, and salary of employees with a salary between 65000 and 80000, ordered by their first name in descending order, and limit the result to 3 rows.
+SELECT FirstName, LastName, Salary FROM Employees
+WHERE Salary > 65000 AND Salary < 80000
+ORDER BY FirstName DESC LIMIT 3;
